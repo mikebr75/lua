@@ -1,16 +1,13 @@
 --main call of logger
 function onTick()
-   --check logger button
-   if(getGpio(0) == 1) then
-      startLogger()
-   else
-      stopLogging()      
-   end
+   checkLoggerState()
 end
 
 --start the logger if not already logging
-function startLogger()
-   if(isLogging() == 0) then
+function checkLoggerState()
+   if(getGpio(0) == 1 && isLogging() == 0) then
       startLogging()
-   end
+   else if(getGpio(0) == 0 && isLogging() ==1)
+      stopLogging()
+   end   
 end
