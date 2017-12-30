@@ -7,7 +7,7 @@ end
 function checkLoggerState()
    if getGpio(0) == 1 and isLogging() == 0 then
       startLogging()
-   elseif getGpio(0) == 0 and isLogging() == 1
+   elseif getGpio(0) == 0 and isLogging() == 1 then
       stopLogging()
    end   
 end
